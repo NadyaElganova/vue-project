@@ -16,6 +16,9 @@
             <RouterLink to='/message'>
                 Сообщения
             </RouterLink>
+            <RouterLink to='/albums'>
+                Альбомы
+            </RouterLink>
         </nav>
         </header>
 </template>

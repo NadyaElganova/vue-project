@@ -4,6 +4,9 @@ import About from '../views/About.vue'
 import User from '../views/User.vue'
 import New from '../views/New.vue'
 import Message from '../views/Messages.vue'
+import Post from '../views/Post.vue'
+import Album from '../views/Albums.vue'
+import Albums from '../views/Album.vue'
 
 
 const router = createRouter({
@@ -30,9 +33,24 @@ const router = createRouter({
       component: New
     },
     {
+      path: '/new/:id',
+      name: 'post',
+      component: Post
+    },
+    {
       path: '/message',
       name: 'message',
       component: Message
+    },
+    {
+      path: '/albums',
+      name: 'album',
+      component: Album
+    },
+    {
+      path: '/album/:id',
+      name: 'albums',
+      component: Albums
     },
   ]
 })

@@ -2,39 +2,45 @@
     <div class="post">
         <div class="d-flex justify-content-between">
             <h3>
-               {{this.title}} 
+                {{ this.title }}
             </h3>
-            <button type="button" class="close" @click="this.delete">
-          <span aria-hidden="true">&times;</span>
-        </button>       
+            <button type="button" class="close" @click='this.delete'>
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-            <p>
-                {{ this.text }}
-            </p>
+        <div v-if="this.user">
+            <a :href="'mailto:' + this.user.email">{{ this.user.email }}</a>
+        </div>
+        <p>
+            {{ this.text }}
+        </p>
+        <div class="d-flex justify-content-end">
+            <span class="btn btn-primary" @click='this.$router.push("/new/"+this.id)'>Читать дальше</span>
+        </div>
     </div>
 </template>
 
-
 <script>
-export default{
-      name: "Post",
-      props: [
-        'title', 
-        'text',
-    ],
-      components: {
-        
+    export default {
+        name: "Post",
+        props: [
+            'id',
+            'title',
+            'text',
+            'user'
+        ],
+        components: {
 
-      },
-      data(){
+        },
+        data(){
 
-      },
-      methods:{
-        delete(){
-            this.$emit('delete')
+        },
+        methods: {
+            delete(){
+                this.$emit('delete')
+            }
         }
-      }
-  }
+    }
 </script>
 
 <style>
@@ -46,5 +52,4 @@ export default{
     .post:last-child{
         margin-bottom: 10px;
     }
-
 </style>
